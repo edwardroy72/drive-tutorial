@@ -5,16 +5,11 @@ import {
   ChevronRight,
   File,
   Folder,
-  Home,
   ImageIcon,
   Info,
   LayoutGrid,
   List,
   MoreVertical,
-  Plus,
-  Share2,
-  Star,
-  Trash2,
   Upload,
 } from "lucide-react";
 import { Button } from "~/components/ui/button";
@@ -302,7 +297,7 @@ export function FileExplorer() {
     alert("Upload functionality would open a file picker here");
   };
 
-  const currentFiles = mockData[getCurrentPathKey()] || [];
+  const currentFiles = mockData[getCurrentPathKey()] ?? [];
 
   return (
     <div className="flex h-screen">
@@ -461,7 +456,7 @@ export function FileExplorer() {
                       {file.modified}
                     </td>
                     <td className="px-3 py-2 text-sm whitespace-nowrap text-gray-500">
-                      {file.size || "-"}
+                      {file.size ?? "-"}
                     </td>
                     <td className="px-3 py-2 text-right text-sm whitespace-nowrap">
                       <Button
